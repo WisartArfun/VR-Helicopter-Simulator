@@ -63,7 +63,8 @@ namespace Gvr.Internal {
 
     public override void UpdateState() {
       Quaternion rot;
-      if (GvrViewer.Instance.UseUnityRemoteInput && RemoteCommunicating) {
+      // if (GvrViewer.Instance.UseUnityRemoteInput && RemoteCommunicating) {
+        if (/*Cardboard.SDK.UseUnityRemoteInput &&*/ RemoteCommunicating ) {
         var att = Input.gyro.attitude * initialRotation;
         att = new Quaternion(att.x, att.y, -att.z, -att.w);
         rot = Quaternion.Euler(90, 0, 0) * att;
