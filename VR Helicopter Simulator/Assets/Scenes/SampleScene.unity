@@ -121,6 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87973193}
+  - component: {fileID: 87973192}
   m_Layer: 0
   m_Name: Remote changer
   m_TagString: Untagged
@@ -128,6 +129,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &87973192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 87973191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6da1d7218b49714592f7411e251c82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &87973193
 Transform:
   m_ObjectHideFlags: 0
@@ -976,10 +988,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotor: {fileID: 281538459}
   force: 2250
-  gravity_amount: 25
+  gravity_amount: 30
   rotation_speed: 200
   forward_rotation_max_amount: 650
-  sideward_rotation_max_amount: 900
+  max_forward_rotation: 20
+  rotation_speed_forward: 4
+  max_forward_rotaiton_at_once: 3
+  min_forward_rotation_at_once: 0
+  sideward_rotation_max_amount: 500
+  max_sideward_rotation: 20
+  rotation_speed_sideward: 4
+  max_sideward_rotation_at_once: 3
+  min_sideward_rotation_at_once: 0
 --- !u!54 &1031926188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2254,7 +2274,7 @@ MonoBehaviour:
   - {fileID: 1521197045}
   - {fileID: 1432307281}
   - {fileID: 1055392905}
-  speed: 5
+  speed: 12
 --- !u!1001 &2138964151
 Prefab:
   m_ObjectHideFlags: 0
