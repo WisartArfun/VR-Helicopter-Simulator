@@ -121,7 +121,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 87973193}
-  - component: {fileID: 87973192}
   m_Layer: 0
   m_Name: Remote changer
   m_TagString: Untagged
@@ -129,17 +128,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &87973192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 87973191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f6df3e08cdade041babe340504a14f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &87973193
 Transform:
   m_ObjectHideFlags: 0
@@ -801,7 +789,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4109736460053238, guid: b5f4161bf2da1584b80840c38cb628c2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 81.7
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4109736460053238, guid: b5f4161bf2da1584b80840c38cb628c2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -809,7 +797,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4109736460053238, guid: b5f4161bf2da1584b80840c38cb628c2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.5
+      value: 9.7
       objectReference: {fileID: 0}
     - target: {fileID: 4109736460053238, guid: b5f4161bf2da1584b80840c38cb628c2, type: 2}
       propertyPath: m_LocalRotation.x

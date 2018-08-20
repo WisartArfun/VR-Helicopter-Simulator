@@ -23,7 +23,7 @@ public class Local_Input : MonoBehaviour {
 		checkpoint_movement = GetComponent<Checkpoints_Movement>();
 	}
 
-	void FixedUpdate () {
+	void Update () {
 		h_Input = Input.GetAxis("Vertical");  //somehow the axis is inverted
 		yInput = Input.GetAxis("Horizontal");
 
@@ -39,13 +39,10 @@ public class Local_Input : MonoBehaviour {
 			locked_value = h_Input;
 		}
 
-		// if (Mathf.Abs(h_Input) > 0.1) {
-		// if (h_Input > 0.1f) {
 		if (locked) {
 			h_Input += locked_value;
 		}
 		receiver_input_controller.Vertical_Movement(h_Input);
-		// }
 
 		if (Mathf.Abs(yInput) > 0.1f) {
 			receiver_input_controller.Rotate(yInput);
