@@ -47,8 +47,6 @@ public class Local_Input : MonoBehaviour {
 		receiver_input_controller.Vertical_Movement(h_Input);
 		// }
 
-		Debug.Log(yInput);
-
 		if (Mathf.Abs(yInput) > 0.1f) {
 			receiver_input_controller.Rotate(yInput);
 		}
