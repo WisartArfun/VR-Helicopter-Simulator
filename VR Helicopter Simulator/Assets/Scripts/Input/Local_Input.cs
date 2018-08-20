@@ -15,9 +15,12 @@ public class Local_Input : MonoBehaviour {
 	private float locked_value;
 	private float end_value;
 
+	Checkpoints_Movement checkpoint_movement;
+
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
+		checkpoint_movement = GetComponent<Checkpoints_Movement>();
 	}
 
 	void FixedUpdate () {
@@ -62,6 +65,11 @@ public class Local_Input : MonoBehaviour {
 			receiver_input_controller.Sideward(0);
 		}
 
+		if (Input.GetButton ("NextC")) {
+			checkpoint_movement.change_checkpoint(1);
+		} else if (Input.GetButton("PreviousC")) {
+			checkpoint_movement.change_checkpoint(-1);
+		}
 
 		if (controller_keyboard.m_State == Controller_Keyboard.eInputState.MouseKeyboard) {
 		} else {
