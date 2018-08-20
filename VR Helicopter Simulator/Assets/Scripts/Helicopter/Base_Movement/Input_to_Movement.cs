@@ -48,16 +48,30 @@ public class Input_to_Movement : MonoBehaviour {
 	}
 
 	public void Forward(float amount) {
-		new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
-		helicopter.Rotate(new_forward_rotation, Space.Self);
-		// forward_rotation = helicopter.rotation;
-		// forward_rotation.eulerAngles += ;
-		// fo
+		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
+		// helicopter.Rotate(new_forward_rotation, Space.Self);
 
+		// new_forward_rotation.Set(0, 0, (forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z) * 0.1f);
+		// helicopter.Rotate(new_forward_rotation, Space.Self);
+
+		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
+		// // helicopter.Rotate(new_forward_rotation, Space.Self);
+		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
+
+		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
+		// // helicopter.Rotate(new_forward_rotation, Space.Self);
+		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
+
+		new_sideward_rotation.Set(sideward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.x,  	0, 0);
+		helicopter.Rotate(new_sideward_rotation, Space.Self);
+
+		// new_sideward_rotation.Set(0, 	sideward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.x, 0);
+		// helicopter.Rotate(new_sideward_rotation, Space.Self);
+		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
 	}
 
 	public void Sideward(float amount) {
-		new_sideward_rotation.Set(sideward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.x,  	0, 0);
-		helicopter.Rotate(new_sideward_rotation, Space.Self);
+		new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
+		helicopter.Rotate(new_forward_rotation, Space.Self);
 	}
 }
