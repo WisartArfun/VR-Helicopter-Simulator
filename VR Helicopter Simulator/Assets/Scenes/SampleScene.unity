@@ -113,6 +113,34 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &34501029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 34501030}
+  m_Layer: 0
+  m_Name: Start_pos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &34501030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 34501029}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.9, z: 5.49}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &70846785
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +549,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11414954, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
       propertyPath: vrModeEnabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 970dd4b9371394fb4890965f608d46fd, type: 2}
@@ -810,6 +838,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669903}
+  - component: {fileID: 534669906}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -877,6 +906,19 @@ Transform:
   m_Father: {fileID: 2015966485}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534669906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716b896c8a5781549a1e46631fd717a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyes: {fileID: 0}
+  helicopter: {fileID: 1031926190}
 --- !u!1 &710000431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,19 +1284,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotor: {fileID: 281538459}
-  force: 2250
-  gravity_amount: 30
+  force: 3800
+  gravity_amount: 50
   rotation_speed: 200
-  forward_rotation_max_amount: 650
   max_forward_rotation: 20
   rotation_speed_forward: 4
-  max_forward_rotaiton_at_once: 3
-  min_forward_rotation_at_once: 0
-  sideward_rotation_max_amount: 500
   max_sideward_rotation: 20
   rotation_speed_sideward: 4
-  max_sideward_rotation_at_once: 3
-  min_sideward_rotation_at_once: 0
+  start_pos: {fileID: 34501030}
 --- !u!54 &1031926188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1294,6 +1331,7 @@ MonoBehaviour:
   - {fileID: 740573123}
   target: {fileID: 2100000, guid: 5996a685e77816c4a9f478e878a64109, type: 2}
   done: {fileID: 2100000, guid: dd7df095164c0954eac4e7529492cb17, type: 2}
+  timer: 0
 --- !u!1 &1049012502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716b896c8a5781549a1e46631fd717a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyes: {fileID: 0}
+  eyes: {fileID: 534669904}
   helicopter: {fileID: 1031926190}
 --- !u!136 &2015966482
 CapsuleCollider:

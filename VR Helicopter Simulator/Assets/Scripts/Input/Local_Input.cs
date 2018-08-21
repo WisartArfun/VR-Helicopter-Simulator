@@ -66,6 +66,10 @@ public class Local_Input : MonoBehaviour {
 			checkpoint_movement.change_checkpoint(-1);
 		}
 
+		if (Input.GetButton("Reset")) {   //x joystick button 2
+			receiver_input_controller.Reset();
+		}
+
 		if (controller_keyboard.m_State == Controller_Keyboard.eInputState.MouseKeyboard) {
 		} else {
 		}

@@ -15,29 +15,15 @@ public class Input_to_Movement : MonoBehaviour {
 	private Quaternion rotation_amount;
 	public float rotation_speed = 100;
 
-	private Vector3 new_forward_rotation;
-	public float forward_rotation_max_amount = 300;
-	private Quaternion forward_rotation;
-
 	public float max_forward_rotation;
 	public float rotation_speed_forward;
-	public float max_forward_rotaiton_at_once;
-	public float min_forward_rotation_at_once;
 	private float target_rotation_forward;
-	private float additional_rotation_forward;
-	private float current_forward_rotation;
-
-	private Vector3 new_sideward_rotation;
-	public float sideward_rotation_max_amount = 300;
-	private Quaternion sideward_rotation;
 
 	public float max_sideward_rotation;
 	public float rotation_speed_sideward;
-	public float max_sideward_rotation_at_once;
-	public float min_sideward_rotation_at_once;
 	private float target_rotation_sideward;
-	private float additional_rotation_sideward;
-	private float current_sideward_rotation;
+
+	public Transform start_pos;
 	
 	void Start () {
 		rb = GetComponent<Rigidbody>();
@@ -52,7 +38,7 @@ public class Input_to_Movement : MonoBehaviour {
 			end_amount = gravity_amount;
 		}
 		rb.AddForce(end_amount * helicopter.up);
-		rotor.Rotate(rotor_rotation * 0.55f);
+		rotor.Rotate(rotor_rotation * 4.55f);
 	}
 
 	public void Rotate(float amount) {
@@ -81,5 +67,11 @@ public class Input_to_Movement : MonoBehaviour {
 		var new_rot_s = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, target_rotation_sideward), Time.deltaTime * rotation_speed_sideward);
 
 		helicopter.rotation = new_rot_s;
+	}
+
+	public void Reset() {
+		Debug.Log("hel");
+		helicopter.position = start_pos.position;
+		helicopter.rotation = start_pos.rotation;
 	}
 }
