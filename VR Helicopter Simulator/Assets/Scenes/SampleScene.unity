@@ -1511,6 +1511,8 @@ MonoBehaviour:
   done: {fileID: 2100000, guid: dd7df095164c0954eac4e7529492cb17, type: 2}
   timer: 0
   current_timer_text: {fileID: 1465108907}
+  record_text: {fileID: 1004256858}
+  last_run_text: {fileID: 435389597}
 --- !u!1 &1049012502
 GameObject:
   m_ObjectHideFlags: 0

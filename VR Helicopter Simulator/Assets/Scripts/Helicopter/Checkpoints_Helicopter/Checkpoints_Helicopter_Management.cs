@@ -22,7 +22,7 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 	void Start() {
 		checkpoints[current_checkpoint].GetComponent<MeshRenderer>().material = target;
 		record_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("record", float.PositiveInfinity));
-		last_run_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("", float.PositiveInfinity));
+		last_run_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("last_run", float.PositiveInfinity));
 	}
 
 	void FixedUpdate() {
@@ -34,7 +34,7 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 				current_checkpoint++;
 				if (current_checkpoint >= checkpoints.Count) {
 					Debug.Log("you have completed the parkour in 	" + timer + "	seconds - congrats");
-					if (timer < PlayerPrefs.GetFloat("record", 0)) {
+					if (timer < PlayerPrefs.GetFloat("record", float.PositiveInfinity)) {
 						PlayerPrefs.SetFloat("record", timer);
 						record_text.GetComponent<Text>().text = System.Convert.ToString(timer);
 					}
