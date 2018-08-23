@@ -17,10 +17,15 @@ public class Local_Input : MonoBehaviour {
 
 	Checkpoints_Movement checkpoint_movement;
 
+	AllAroundInput input_mode;
+
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
 		checkpoint_movement = GetComponent<Checkpoints_Movement>();
+		input_mode = new AllAroundInput();
+		// receiver_input_controller.force = receiver_input_controller.gravity_amount * input_mode.gravity_times_force;
+		Debug.Log(receiver_input_controller.force);
 	}
 
 	void Update () {
@@ -42,14 +47,14 @@ public class Local_Input : MonoBehaviour {
 		if (locked) {
 			h_Input += locked_value;
 		}
-		receiver_input_controller.Vertical_Movement(h_Input);
+		receiver_input_controller.Vertical_Movement(input_mode.adapt_input(h_Input));
 
 		if (Mathf.Abs(yInput) > 0.1f) {
 			receiver_input_controller.Rotate(yInput);
 		}
 
 		if (Mathf.Abs(forward_Input) > 0.1f) {
-			receiver_input_controller.Forward(forward_Input);
+			receiver_input_controller.Forward( forward_Input);
 		} else {
 			receiver_input_controller.Forward(0);
 		}

@@ -30,11 +30,12 @@ public class Input_to_Movement : MonoBehaviour {
 		helicopter = GetComponent<Transform>();
 		Physics.gravity = new Vector3(0, -gravity_amount, 0);
 		rotor_rotation = new Vector3(0, 0, 30);
+		force =  gravity_amount / (0.5f * Time.fixedDeltaTime);
 	}
 
 	public void Vertical_Movement(float amount) {
 		var end_amount = amount * Time.deltaTime * force;
-		if (Mathf.Abs(end_amount - gravity_amount) < 1f) {
+		if (Mathf.Abs(end_amount - (gravity_amount * Time.deltaTime / Time.fixedDeltaTime)) < 2f) {
 			end_amount = gravity_amount;
 		}
 		rb.AddForce(end_amount * helicopter.up);
