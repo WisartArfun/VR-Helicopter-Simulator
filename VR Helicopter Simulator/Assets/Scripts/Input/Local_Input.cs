@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Local_Input : MonoBehaviour {
 
-	private float h_Input;
+	private float v_Input;
 	private float yInput;
 	private float forward_Input;
 	private float sideward_Input;
@@ -19,64 +19,103 @@ public class Local_Input : MonoBehaviour {
 
 	AllAroundInput input_mode;
 
+	public bool floating;
+
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
 		checkpoint_movement = GetComponent<Checkpoints_Movement>();
 		input_mode = new AllAroundInput();
 		// receiver_input_controller.force = receiver_input_controller.gravity_amount * input_mode.gravity_times_force;
-		Debug.Log(receiver_input_controller.force);
 	}
 
 	void Update () {
-		h_Input = Input.GetAxis("Vertical");  //somehow the axis is inverted
-		yInput = Input.GetAxis("Horizontal");
+		horizontal_input(Input.GetAxis("Horizontal") * Time.deltaTime);
 
-		forward_Input = Input.GetAxis("Forward");
-		sideward_Input = Input.GetAxis("Sideward");
+		forward_input(Input.GetAxis("Forward") * Time.deltaTime);
+		sideward_input(Input.GetAxis("Sideward") * Time.deltaTime);
 
-		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
-			if (locked) {
-				locked = false;
-			} else {
-				locked = true;
-			}
-			locked_value = h_Input;
-		}
+		change_controller_checkpoint(Input.GetButton ("NextC"), Input.GetButton("PreviousC"));
 
-		if (locked) {
-			h_Input += locked_value;
-		}
-		receiver_input_controller.Vertical_Movement(input_mode.adapt_input(h_Input));
+		if (Input.GetButton("Reset")) {
+			reset_helicopter();
+		}	
 
-		if (Mathf.Abs(yInput) > 0.1f) {
-			receiver_input_controller.Rotate(yInput);
-		}
-
-		if (Mathf.Abs(forward_Input) > 0.1f) {
-			receiver_input_controller.Forward( forward_Input);
-		} else {
-			receiver_input_controller.Forward(0);
-		}
-
-		if (Mathf.Abs(sideward_Input) > 0.1f) {
-			receiver_input_controller.Sideward(sideward_Input);
-		} else {
-			receiver_input_controller.Sideward(0);
-		}
-
-		if (Input.GetButton ("NextC")) {
-			checkpoint_movement.change_checkpoint(1);
-		} else if (Input.GetButton("PreviousC")) {
-			checkpoint_movement.change_checkpoint(-1);
-		}
-
-		if (Input.GetButton("Reset")) {   //x joystick button 2
-			receiver_input_controller.Reset();
-		}
+		if (Input.GetKeyDown(KeyCode.JoystickButton3)) {
+			switch_floating();
+		}		
 
 		if (controller_keyboard.m_State == Controller_Keyboard.eInputState.MouseKeyboard) {
 		} else {
 		}
+	}
+
+	void FixedUpdate() {
+		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
+			lock_force_value();
+		}
+
+		vertical_movement(Input.GetAxis("Vertical"), Time.fixedDeltaTime);
+	}
+
+	void horizontal_input(float input) {
+		if (Mathf.Abs(input) > 0.1f) {
+			receiver_input_controller.Rotate(input);
+		}
+	}
+
+	void forward_input(float input) {
+		if (Mathf.Abs(input) > 0.1f) {
+			receiver_input_controller.Forward(input);
+		} else {
+			receiver_input_controller.Forward(0);
+		}
+	}
+
+	void sideward_input(float input) {
+		if (Mathf.Abs(input) > 0.1f) {
+			receiver_input_controller.Sideward(input);
+		} else {
+			receiver_input_controller.Sideward(0);
+		}
+	}
+
+	void change_controller_checkpoint(bool previous, bool next) {
+		if (next) {
+			checkpoint_movement.change_checkpoint(1);
+		} else if (previous) {
+			checkpoint_movement.change_checkpoint(-1);
+		}
+	}
+
+	void reset_helicopter() {
+		receiver_input_controller.Reset();
+	}
+
+	void switch_floating() {
+		if (floating) {
+			floating = false;
+		} else {
+			floating = true;
+		}
+	}
+
+	void lock_force_value() {
+		if (locked) {
+			locked = false;
+		} else {
+			locked = true;
+		}
+		locked_value = v_Input;
+	}
+
+	void vertical_movement(float input, float timestep) {
+		if (locked) {
+			input += locked_value;
+		}
+		if (floating) {
+			input += input_mode.flying_controlled;
+		}
+		receiver_input_controller.Vertical_Movement(input_mode.adapt_input(input) * timestep);
 	}
 }

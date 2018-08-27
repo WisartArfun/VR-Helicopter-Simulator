@@ -773,7 +773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776, y: -6812}
+  m_AnchoredPosition: {x: 0, y: -6812}
   m_SizeDelta: {x: 594, y: 464}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &435389597
@@ -1414,7 +1414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000045776, y: -11694}
+  m_AnchoredPosition: {x: 0, y: -11694}
   m_SizeDelta: {x: 594, y: 464}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1004256858
@@ -1478,9 +1478,9 @@ MonoBehaviour:
   gravity_amount: 50
   rotation_speed: 200
   max_forward_rotation: 20
-  rotation_speed_forward: 4
+  rotation_speed_forward: 7
   max_sideward_rotation: 20
-  rotation_speed_sideward: 4
+  rotation_speed_sideward: 7
   start_pos: {fileID: 34501030}
 --- !u!54 &1031926188
 Rigidbody:
@@ -3202,13 +3202,14 @@ MonoBehaviour:
   controller_keyboard: {fileID: 2015966479}
   receiver: {fileID: 1031926186}
   locked: 0
+  floating: 0
 --- !u!114 &2015966481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2015966478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716b896c8a5781549a1e46631fd717a2, type: 3}
   m_Name: 
