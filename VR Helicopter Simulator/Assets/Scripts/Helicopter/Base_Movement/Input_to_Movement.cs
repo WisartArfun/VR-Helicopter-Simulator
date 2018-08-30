@@ -15,63 +15,63 @@ public class Input_to_Movement : MonoBehaviour {
 	private Quaternion rotation_amount;
 	public float rotation_speed = 100;
 
-	private Vector3 new_forward_rotation;
-	public float forward_rotation_max_amount = 300;
-	private Quaternion forward_rotation;
+	public float max_forward_rotation;
+	public float rotation_speed_forward;
+	private float target_rotation_forward;
 
-	private Vector3 new_sideward_rotation;
-	public float sideward_rotation_max_amount = 300;
-	private Quaternion sideward_rotation;
-	
+	public float max_sideward_rotation;
+	public float rotation_speed_sideward;
+	private float target_rotation_sideward;
+
+	public Transform start_pos;
+
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		helicopter = GetComponent<Transform>();
 		Physics.gravity = new Vector3(0, -gravity_amount, 0);
 		rotor_rotation = new Vector3(0, 0, 30);
+		force =  gravity_amount / (0.5f * Time.fixedDeltaTime);
 	}
 
 	public void Vertical_Movement(float amount) {
-		var end_amount = amount * Time.fixedDeltaTime * force;
-		if (Mathf.Abs(end_amount - gravity_amount) < 1f) {
-			end_amount = gravity_amount;
+		var end_amount = 0f;;
+		if (Mathf.Abs(amount-0.5f) < 0.05f) {
+			end_amount = gravity_amount/ Time.fixedDeltaTime;
+		} else {
+			end_amount = amount * force;
 		}
-		rb.AddForce(end_amount * helicopter.up);
-		// var new_rotation = rotor.rotation;
-		// new_rotation.y += 0.1f;
-		// rotor.rotation = new_rotation;
-		rotor.Rotate(rotor_rotation * 1);
+
+		if (end_amount > 0) {
+			rb.AddForce(end_amount * helicopter.up);
+		}
+		
+		rotor.Rotate(rotor_rotation * 4.55f);
 	}
 
 	public void Rotate(float amount) {
-		rotation_amount = Quaternion.Euler(0, rotation_speed * amount * Time.fixedDeltaTime, 0);
+		rotation_amount = Quaternion.Euler(0, rotation_speed * amount, 0);
 		helicopter.rotation = rotation_amount * helicopter.rotation;
 	}
 
 	public void Forward(float amount) {
-		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
-		// helicopter.Rotate(new_forward_rotation, Space.Self);
+		target_rotation_forward = max_forward_rotation * amount;
+		
+		var new_rot_f = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(target_rotation_forward, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z), rotation_speed_forward);
 
-		// new_forward_rotation.Set(0, 0, (forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z) * 0.1f);
-		// helicopter.Rotate(new_forward_rotation, Space.Self);
-
-		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
-		// // helicopter.Rotate(new_forward_rotation, Space.Self);
-		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
-
-		// new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
-		// // helicopter.Rotate(new_forward_rotation, Space.Self);
-		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
-
-		new_sideward_rotation.Set(sideward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.x,  	0, 0);
-		helicopter.Rotate(new_sideward_rotation, Space.Self);
-
-		// new_sideward_rotation.Set(0, 	sideward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.x, 0);
-		// helicopter.Rotate(new_sideward_rotation, Space.Self);
-		// transform.rotation = Quaternion.SlerpUnclamped(transform.rotation, Quaternion.Euler(new_forward_rotation), 0.1f);
+		helicopter.rotation = new_rot_f;
 	}
+		
 
 	public void Sideward(float amount) {
-		new_forward_rotation.Set(0, 0, forward_rotation_max_amount * amount * Time.fixedDeltaTime - helicopter.rotation.eulerAngles.z);
-		helicopter.Rotate(new_forward_rotation, Space.Self);
+		target_rotation_sideward = max_sideward_rotation * amount;
+		
+		var new_rot_s = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, target_rotation_sideward), rotation_speed_sideward);
+
+		helicopter.rotation = new_rot_s;
+	}
+
+	public void Reset() {
+		helicopter.position = start_pos.position;
+		helicopter.rotation = start_pos.rotation;
 	}
 }
