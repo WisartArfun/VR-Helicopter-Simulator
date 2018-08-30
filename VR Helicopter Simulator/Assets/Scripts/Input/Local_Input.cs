@@ -21,6 +21,8 @@ public class Local_Input : MonoBehaviour {
 
 	public bool floating;
 
+	public OpenSettings open_settings;
+
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
@@ -41,9 +43,13 @@ public class Local_Input : MonoBehaviour {
 			reset_helicopter();
 		}	
 
-		if (Input.GetKeyDown(KeyCode.JoystickButton3)) {
+		if (Input.GetButtonDown("Switch Floating")) {
 			switch_floating();
-		}		
+		}
+
+		if (Input.GetButtonDown("Open Pause Menu")) {
+			open_settings.change_active();
+		}	
 
 		if (controller_keyboard.m_State == Controller_Keyboard.eInputState.MouseKeyboard) {
 		} else {
@@ -51,19 +57,19 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if (Input.GetKeyDown(KeyCode.Joystick6Button6)) {
-			Debug.Log("6");
-		} else if (Input.GetKeyDown(KeyCode.Joystick6Button7)) {
-			Debug.Log("7");
-		} else if (Input.GetKeyDown(KeyCode.Joystick6Button8)) {
-			Debug.Log("8");
-		} else if (Input.GetKeyDown(KeyCode.Joystick6Button9)) {
-			Debug.Log("9");
-		} else if (Input.GetKeyDown(KeyCode.Joystick6Button10)) {
-			Debug.Log("10");
-		} else if (Input.GetKeyDown(KeyCode.Joystick6Button11)) {
-			Debug.Log("11");
-		} 
+		// if (Input.GetKeyDown(KeyCode.JoystickButton6)) {
+		// 	Debug.Log("6");
+		// } else if (Input.GetKeyDown(KeyCode.JoystickButton7)) {
+		// 	Debug.Log("7");
+		// } else if (Input.GetKeyDown(KeyCode.JoystickButton8)) {
+		// 	Debug.Log("8");
+		// } else if (Input.GetKeyDown(KeyCode.JoystickButton9)) {
+		// 	Debug.Log("9");
+		// } else if (Input.GetKeyDown(KeyCode.JoystickButton10)) {
+		// 	Debug.Log("10");
+		// } else if (Input.GetKeyDown(KeyCode.JoystickButton11)) {
+		// 	Debug.Log("11");
+		// } 
 
 		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
 			lock_force_value();

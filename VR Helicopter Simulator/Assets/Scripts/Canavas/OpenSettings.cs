@@ -14,19 +14,28 @@ public class OpenSettings : MonoBehaviour {
 		} else {
 			canavas.SetActive(false);
 		}
-		canavas.SetActive(true);
 	}
-	
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.JoystickButton3)) {
-			if (showing) {
-				showing = false;
-				canavas.SetActive(showing);
-			} else {
-				showing = true;
-				canavas.SetActive(showing);
-				Debug.Log("ajsdlfkjasl;kfaslkfjkslf");
-			}
+
+	public void change_active() {
+		if (showing) {
+			showing = false;
+			canavas.SetActive(showing);
+		} else {
+			showing = true;
+			canavas.SetActive(showing);
 		}
+	}
+
+	public void game_resume() {
+		showing = false;
+		canavas.SetActive(showing);
+	}
+
+	public void game_reset() {
+
+	}
+
+	public void game_exit() {
+
 	}
 }
