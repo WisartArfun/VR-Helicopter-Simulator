@@ -85,8 +85,7 @@ public class Controller_Keyboard : MonoBehaviour {
 		return false;
 	}
 
-	private bool isControlerInput()
-	{
+	private bool isControlerInput() {
 		// joystick buttons
 		if(Input.GetKey(KeyCode.Joystick1Button0)  ||
 		Input.GetKey(KeyCode.Joystick1Button1)  ||
@@ -107,8 +106,7 @@ public class Controller_Keyboard : MonoBehaviour {
 		Input.GetKey(KeyCode.Joystick1Button16) ||
 		Input.GetKey(KeyCode.Joystick1Button17) ||
 		Input.GetKey(KeyCode.Joystick1Button18) ||
-		Input.GetKey(KeyCode.Joystick1Button19) )
-		{
+		Input.GetKey(KeyCode.Joystick1Button19) ) {
 			return true;
 		}
 

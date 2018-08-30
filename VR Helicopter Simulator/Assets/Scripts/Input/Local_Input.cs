@@ -30,10 +30,10 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void Update () {
-		horizontal_input(Input.GetAxis("Horizontal") * Time.deltaTime);
+		horizontal_input(Input.GetAxis("Horizontal"), Time.deltaTime);
 
-		forward_input(Input.GetAxis("Forward") * Time.deltaTime);
-		sideward_input(Input.GetAxis("Sideward") * Time.deltaTime);
+		forward_input(Input.GetAxis("Forward"));
+		sideward_input(Input.GetAxis("Sideward"));
 
 		change_controller_checkpoint(Input.GetButton ("NextC"), Input.GetButton("PreviousC"));
 
@@ -51,6 +51,20 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		if (Input.GetKeyDown(KeyCode.Joystick6Button6)) {
+			Debug.Log("6");
+		} else if (Input.GetKeyDown(KeyCode.Joystick6Button7)) {
+			Debug.Log("7");
+		} else if (Input.GetKeyDown(KeyCode.Joystick6Button8)) {
+			Debug.Log("8");
+		} else if (Input.GetKeyDown(KeyCode.Joystick6Button9)) {
+			Debug.Log("9");
+		} else if (Input.GetKeyDown(KeyCode.Joystick6Button10)) {
+			Debug.Log("10");
+		} else if (Input.GetKeyDown(KeyCode.Joystick6Button11)) {
+			Debug.Log("11");
+		} 
+
 		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
 			lock_force_value();
 		}
@@ -58,13 +72,15 @@ public class Local_Input : MonoBehaviour {
 		vertical_movement(Input.GetAxis("Vertical"), Time.fixedDeltaTime);
 	}
 
-	void horizontal_input(float input) {
+	void horizontal_input(float input, float timestep) {
+			// Debug.Log("k2 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
-			receiver_input_controller.Rotate(input);
+			receiver_input_controller.Rotate(input_mode.adapt_input(input) * timestep);
 		}
 	}
 
 	void forward_input(float input) {
+		// Debug.Log("k1 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
 			receiver_input_controller.Forward(input);
 		} else {
@@ -73,7 +89,9 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void sideward_input(float input) {
+		// Debug.Log("k3 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
+			// receiver_input_controller.Sideward(input_mode.adapt_input(input));
 			receiver_input_controller.Sideward(input);
 		} else {
 			receiver_input_controller.Sideward(0);
@@ -116,6 +134,7 @@ public class Local_Input : MonoBehaviour {
 		if (floating) {
 			input += input_mode.flying_controlled;
 		}
+		// Debug.Log(input_mode.adapt_input(input) * timestep);
 		receiver_input_controller.Vertical_Movement(input_mode.adapt_input(input) * timestep);
 	}
 }

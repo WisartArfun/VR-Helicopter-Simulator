@@ -36,19 +36,19 @@ public class Input_to_Movement : MonoBehaviour {
 	public void Vertical_Movement(float amount) {
 		var end_amount = 0f;;
 		if (Mathf.Abs(amount-0.5f) < 0.05f) {
-			// end_amount = gravity_amount * Time.deltaTime / Time.fixedDeltaTime;\
 			end_amount = gravity_amount/ Time.fixedDeltaTime;
 		} else {
-			// end_amount = amount * Time.deltaTime * force;
 			end_amount = amount * force;
 		}
 
-		rb.AddForce(end_amount * helicopter.up);
+		if (end_amount > 0) {
+			rb.AddForce(end_amount * helicopter.up);
+		}
+		
 		rotor.Rotate(rotor_rotation * 4.55f);
 	}
 
 	public void Rotate(float amount) {
-		// rotation_amount = Quaternion.Euler(0, rotation_speed * amount * Time.deltaTime, 0);
 		rotation_amount = Quaternion.Euler(0, rotation_speed * amount, 0);
 		helicopter.rotation = rotation_amount * helicopter.rotation;
 	}
@@ -56,7 +56,6 @@ public class Input_to_Movement : MonoBehaviour {
 	public void Forward(float amount) {
 		target_rotation_forward = max_forward_rotation * amount;
 		
-		// var new_rot_f = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(target_rotation_forward, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z), Time.deltaTime * rotation_speed_forward);
 		var new_rot_f = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(target_rotation_forward, transform.localRotation.eulerAngles.y, transform.localRotation.eulerAngles.z), rotation_speed_forward);
 
 		helicopter.rotation = new_rot_f;
@@ -66,7 +65,6 @@ public class Input_to_Movement : MonoBehaviour {
 	public void Sideward(float amount) {
 		target_rotation_sideward = max_sideward_rotation * amount;
 		
-		// var new_rot_s = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, target_rotation_sideward), Time.deltaTime * rotation_speed_sideward);
 		var new_rot_s = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(transform.localRotation.eulerAngles.x, transform.localRotation.eulerAngles.y, target_rotation_sideward), rotation_speed_sideward);
 
 		helicopter.rotation = new_rot_s;
