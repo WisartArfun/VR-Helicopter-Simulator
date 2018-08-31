@@ -7,6 +7,7 @@ public class OpenSettings : MonoBehaviour {
 
 	bool showing = false;
 	public GameObject canavas;
+	public GameObject helicopter;
 
 	void Start() {
 		if (showing) {
@@ -32,7 +33,8 @@ public class OpenSettings : MonoBehaviour {
 	}
 
 	public void game_reset() {
-
+		helicopter.SendMessage("Reset");
+		helicopter.SendMessage("reset_timer");	
 	}
 
 	public void game_exit() {
