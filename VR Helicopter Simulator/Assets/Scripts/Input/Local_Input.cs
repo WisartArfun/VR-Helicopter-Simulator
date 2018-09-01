@@ -34,8 +34,8 @@ public class Local_Input : MonoBehaviour {
 	void Update () {
 		horizontal_input(Input.GetAxis("Horizontal"), Time.deltaTime);
 
-		forward_input(Input.GetAxis("Forward"));
-		sideward_input(Input.GetAxis("Sideward"));
+		forward_input(-Input.GetAxis("Forward"));
+		sideward_input(-Input.GetAxis("Sideward"));
 
 		change_controller_checkpoint(Input.GetButton ("NextC"), Input.GetButton("PreviousC"));
 
@@ -79,7 +79,6 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void horizontal_input(float input, float timestep) {
-			// Debug.Log("k2 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
 			receiver_input_controller.Rotate(input_mode.adapt_input(input) * timestep);
 		}

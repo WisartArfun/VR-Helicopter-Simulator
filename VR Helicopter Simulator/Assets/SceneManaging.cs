@@ -12,4 +12,10 @@ public class SceneManaging : MonoBehaviour {
 	public void change_scene(int scene) {
 		scene_changer.change_scene(scene);
 	}
+
+	void Update() {
+		if (Input.GetButtonDown("Reset")) {
+			change_scene(1);
+		}
+	}
 }
