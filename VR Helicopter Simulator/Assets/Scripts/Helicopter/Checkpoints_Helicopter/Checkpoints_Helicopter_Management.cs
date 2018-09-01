@@ -25,7 +25,7 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 		last_run_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("last_run", float.PositiveInfinity));
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		if (frames >= 15) {
 			var d = Vector3.Distance(transform.position, checkpoints[current_checkpoint].position);
 			if (d < 2.5f) {
