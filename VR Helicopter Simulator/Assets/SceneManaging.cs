@@ -5,6 +5,9 @@ using UnityEngine;
 public class SceneManaging : MonoBehaviour {
 	
 	ChangeScene scene_changer;
+
+	int num = 0;
+
 	void Start () {
 		scene_changer = new ChangeScene();
 	}
@@ -14,8 +17,9 @@ public class SceneManaging : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetButtonDown("Reset")) {
+		if (Input.GetButtonDown("Reset") && num < 1) {
 			change_scene(1);
+			num++;
 		}
 	}
 }
