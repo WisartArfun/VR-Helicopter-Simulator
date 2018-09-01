@@ -8,33 +8,33 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications: []
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1488652535674356}
-  m_IsPrefabAsset: 1
---- !u!1 &1488652535674356
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1996964400822990}
+  m_IsPrefabParent: 1
+--- !u!1 &1996964400822990
 GameObject:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
+  serializedVersion: 5
   m_Component:
-  - component: {fileID: 4808860651564508}
-  - component: {fileID: 33965832418355226}
-  - component: {fileID: 23157576298158576}
-  - component: {fileID: 135778614666372422}
+  - component: {fileID: 4002954809580650}
+  - component: {fileID: 33539197428539226}
+  - component: {fileID: 23328025104252938}
+  - component: {fileID: 135074097264184402}
   m_Layer: 0
-  m_Name: Helicopter_Checkpoint
+  m_Name: Helicopter_Checkpoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4808860651564508
+--- !u!4 &4002954809580650
 Transform:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488652535674356}
+  m_GameObject: {fileID: 1996964400822990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.166, y: 10.535, z: 16.777}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,12 +42,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23157576298158576
+--- !u!23 &23328025104252938
 MeshRenderer:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488652535674356}
+  m_GameObject: {fileID: 1996964400822990}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,19 +77,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33965832418355226
+--- !u!33 &33539197428539226
 MeshFilter:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488652535674356}
+  m_GameObject: {fileID: 1996964400822990}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!135 &135778614666372422
+--- !u!135 &135074097264184402
 SphereCollider:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1488652535674356}
+  m_GameObject: {fileID: 1996964400822990}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 0
