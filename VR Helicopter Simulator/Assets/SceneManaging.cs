@@ -17,9 +17,8 @@ public class SceneManaging : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetButtonDown("Reset") && num < 1) {
+		if (Input.GetKeyDown(KeyCode.JoystickButton1)) {
 			change_scene(1);
-			num++;
 		}
 	}
 }

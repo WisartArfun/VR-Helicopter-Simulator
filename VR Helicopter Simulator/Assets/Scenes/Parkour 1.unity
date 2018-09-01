@@ -1752,7 +1752,13 @@ Prefab:
       propertyPath: m_Name
       value: Heli1 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114485037934089410, guid: fd11d98ee017f6241a0193c6137bffb2,
+        type: 2}
+      propertyPath: start_pos
+      value: 
+      objectReference: {fileID: 1817060143}
+    m_RemovedComponents:
+    - {fileID: 114293590091049708, guid: fd11d98ee017f6241a0193c6137bffb2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: fd11d98ee017f6241a0193c6137bffb2, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &992040199
@@ -1914,6 +1920,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004256856}
+--- !u!1 &1020586433 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1616979299091850, guid: fd11d98ee017f6241a0193c6137bffb2,
+    type: 2}
+  m_PrefabInternal: {fileID: 980457155}
+--- !u!114 &1020586434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020586433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83dfe72b204107439b3a61e559bc73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoints:
+  - {fileID: 1702791749}
+  - {fileID: 698234790}
+  - {fileID: 369718957}
+  - {fileID: 937098866}
+  - {fileID: 1032729687}
+  target: {fileID: 2100000, guid: 5996a685e77816c4a9f478e878a64109, type: 2}
+  done: {fileID: 2100000, guid: dd7df095164c0954eac4e7529492cb17, type: 2}
+  timer: 0
+  current_timer_text: {fileID: 1465108907}
+  record_text: {fileID: 1004256858}
+  last_run_text: {fileID: 435389597}
 --- !u!1001 &1032729686
 Prefab:
   m_ObjectHideFlags: 0
@@ -3684,7 +3718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_keyboard: {fileID: 2015966479}
-  receiver: {fileID: 0}
+  receiver: {fileID: 1020586433}
   locked: 0
   floating: 0
   open_settings: {fileID: 292873933}
@@ -3784,10 +3818,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkpoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 294699692}
+  - {fileID: 2970689}
+  - {fileID: 1482060785}
+  - {fileID: 87546349}
   speed: 12
 --- !u!1 &2089102312
 GameObject:
