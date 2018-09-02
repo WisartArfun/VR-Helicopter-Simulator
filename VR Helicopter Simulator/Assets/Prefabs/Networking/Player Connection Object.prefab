@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4939488356863886}
   - component: {fileID: 114692154836093668}
-  - component: {fileID: 114696720054627138}
+  - component: {fileID: 114242521147708344}
   m_Layer: 0
   m_Name: Player Connection Object
   m_TagString: Untagged
@@ -41,6 +41,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114242521147708344
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1124087789379590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8aa2af51da94b34383945cdb9bf969a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a_name: helitest
+  helicopter: {fileID: 1662269349724768, guid: 6dbfa790aea950f4cb8168985258304e, type: 2}
+  helicopter_instance: {fileID: 0}
+  spawn_pos: {fileID: 4679812683289970, guid: d63e5f9dac0626d48b64b62ec20af35d, type: 2}
 --- !u!114 &114692154836093668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,18 +88,3 @@ MonoBehaviour:
     i15: 207
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114696720054627138
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1124087789379590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8aa2af51da94b34383945cdb9bf969a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  a_name: 
-  helicopter: {fileID: 0}
-  helicopter_instance: {fileID: 0}
-  spawn_pos: {fileID: 0}

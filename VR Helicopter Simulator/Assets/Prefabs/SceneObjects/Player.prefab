@@ -239,14 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dda4bb2d5509e44e978d2bf56e25d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addedElbowHeight: 0
-  addedElbowDepth: 0
-  pointerTiltAngle: 15
-  fadeDistanceFromFace: 0.32
-  tooltipMinDistanceFromFace: 0.45
-  tooltipMaxAngleFromCamera: 80
-  followGaze: 1
-  useAccelerometer: 0
 --- !u!114 &114485167074410462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adde9bdea083943199c7959004756e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emulatorConnectionMode: 1
 --- !u!114 &114516950450428656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller_keyboard: {fileID: 114933763976805122}
-  receiver: {fileID: 0}
+  receiver: {fileID: 1616979299091850, guid: fd11d98ee017f6241a0193c6137bffb2, type: 2}
   locked: 0
   floating: 0
   open_settings: {fileID: 0}
@@ -336,6 +327,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  scene_data: {fileID: 0}
   speed: 12
 --- !u!114 &114933763976805122
 MonoBehaviour:

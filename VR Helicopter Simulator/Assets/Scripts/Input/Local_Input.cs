@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Local_Input : MonoBehaviour {
+using UnityEngine.Networking;
+public class Local_Input : NetworkBehaviour {
 
 	private float v_Input;
 	private float yInput;
@@ -23,6 +24,8 @@ public class Local_Input : MonoBehaviour {
 
 	public OpenSettings open_settings;
 
+	public GameObject client_prefab;
+
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
@@ -32,6 +35,12 @@ public class Local_Input : MonoBehaviour {
 	}
 
 	void Update () {
+
+		if (!hasAuthority) {
+			return;
+		}
+		Debug.Log("???");
+
 		horizontal_input(Input.GetAxis("Horizontal"), Time.deltaTime);
 
 		forward_input(-Input.GetAxis("Forward"));
@@ -51,12 +60,21 @@ public class Local_Input : MonoBehaviour {
 			open_settings.change_active();
 		}	
 
+		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
+			lock_force_value();
+		}
+
 		if (controller_keyboard.m_State == Controller_Keyboard.eInputState.MouseKeyboard) {
 		} else {
 		}
 	}
 
 	void FixedUpdate() {
+		
+		if (!hasAuthority) {
+			return;
+		}
+
 		// if (Input.GetKeyDown(KeyCode.JoystickButton6)) {
 		// 	Debug.Log("6");
 		// } else if (Input.GetKeyDown(KeyCode.JoystickButton7)) {
@@ -70,10 +88,6 @@ public class Local_Input : MonoBehaviour {
 		// } else if (Input.GetKeyDown(KeyCode.JoystickButton11)) {
 		// 	Debug.Log("11");
 		// } 
-
-		if (Input.GetKeyDown(KeyCode.Joystick1Button0)) {
-			lock_force_value();
-		}
 
 		vertical_movement(Input.GetAxis("Vertical"), Time.fixedDeltaTime);
 	}

@@ -121,6 +121,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4478584552884312}
+  - component: {fileID: 114693132782992018}
+  - component: {fileID: 114489971569680798}
+  - component: {fileID: 114382071157407984}
   m_Layer: 0
   m_Name: Helicopter & Receiver
   m_TagString: Untagged
@@ -143,6 +146,7 @@ GameObject:
   - component: {fileID: 65119244679124260}
   - component: {fileID: 114029744841362610}
   - component: {fileID: 114616669163526932}
+  - component: {fileID: 114654809105775012}
   m_Layer: 0
   m_Name: Heli1
   m_TagString: Untagged
@@ -214,6 +218,7 @@ GameObject:
   - component: {fileID: 114178950331463400}
   - component: {fileID: 114344926132817458}
   - component: {fileID: 114146932004439356}
+  - component: {fileID: 114990695150508226}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -802,14 +807,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dda4bb2d5509e44e978d2bf56e25d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addedElbowHeight: 0
-  addedElbowDepth: 0
-  pointerTiltAngle: 15
-  fadeDistanceFromFace: 0.32
-  tooltipMinDistanceFromFace: 0.45
-  tooltipMaxAngleFromCamera: 80
-  followGaze: 1
-  useAccelerometer: 0
 --- !u!114 &114146932004439356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,7 +823,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  scene_data: {fileID: 0}
+  scene_data: {fileID: 11400000, guid: 111ff10e42c10e949acc2e797c49ef15, type: 2}
   speed: 12
 --- !u!114 &114178950331463400
 MonoBehaviour:
@@ -856,13 +853,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
+--- !u!114 &114382071157407984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662269349724768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cba27078d55e3144b0298acf6e70c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114489971569680798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662269349724768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114616669163526932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1759330762964780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d83dfe72b204107439b3a61e559bc73a, type: 3}
   m_Name: 
@@ -874,19 +903,51 @@ MonoBehaviour:
   current_timer_text: {fileID: 0}
   record_text: {fileID: 0}
   last_run_text: {fileID: 0}
+--- !u!114 &114654809105775012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1759330762964780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 109
+    i1: 191
+    i2: 167
+    i3: 144
+    i4: 174
+    i5: 169
+    i6: 80
+    i7: 244
+    i8: 203
+    i9: 129
+    i10: 104
+    i11: 152
+    i12: 82
+    i13: 88
+    i14: 48
+    i15: 78
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114676238003222382
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925993069520036}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 716b896c8a5781549a1e46631fd717a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   eyes: {fileID: 20977079981990176}
-  helicopter: {fileID: 0}
+  helicopter: {fileID: 4319044606299234}
 --- !u!114 &114686656810733982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -900,6 +961,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyes: {fileID: 0}
   helicopter: {fileID: 0}
+--- !u!114 &114693132782992018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662269349724768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 109
+    i1: 191
+    i2: 167
+    i3: 144
+    i4: 174
+    i5: 169
+    i6: 80
+    i7: 244
+    i8: 203
+    i9: 129
+    i10: 104
+    i11: 152
+    i12: 82
+    i13: 88
+    i14: 48
+    i15: 78
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114846621294455042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -911,7 +1004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adde9bdea083943199c7959004756e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emulatorConnectionMode: 1
 --- !u!114 &114949927034505170
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -931,6 +1023,38 @@ MonoBehaviour:
   screenSize: 0
   viewerType: 1
   stereoScreenScale: 1
+--- !u!114 &114990695150508226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925993069520036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 109
+    i1: 191
+    i2: 167
+    i3: 144
+    i4: 174
+    i5: 169
+    i6: 80
+    i7: 244
+    i8: 203
+    i9: 129
+    i10: 104
+    i11: 152
+    i12: 82
+    i13: 88
+    i14: 48
+    i15: 78
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!136 &136449358663889486
 CapsuleCollider:
   m_ObjectHideFlags: 1
