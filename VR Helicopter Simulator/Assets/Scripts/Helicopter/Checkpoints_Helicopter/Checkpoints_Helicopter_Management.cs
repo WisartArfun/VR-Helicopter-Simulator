@@ -25,7 +25,7 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 		last_run_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("last_run", float.PositiveInfinity));
 	}
 
-	void Update() {
+	void FixedUpdate() {
 		if (frames >= 15) {
 			var d = Vector3.Distance(transform.position, checkpoints[current_checkpoint].position);
 			if (d < 2.5f) {
@@ -41,7 +41,7 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 					PlayerPrefs.SetFloat("last_run", timer);
 					last_run_text.GetComponent<Text>().text = System.Convert.ToString(timer);
 					current_checkpoint = 0;
-					reset_timer();
+					timer = 0;
 				}
 				checkpoints[current_checkpoint].GetComponent<MeshRenderer>().material = target;
 			}
@@ -50,9 +50,5 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 		}
 		timer += Time.fixedDeltaTime;
 		frames++;
-	}
-
-	public void reset_timer() {
-		timer = 0;
 	}
 }

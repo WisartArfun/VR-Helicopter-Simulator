@@ -7,7 +7,6 @@ public class OpenSettings : MonoBehaviour {
 
 	bool showing = false;
 	public GameObject canavas;
-	public GameObject helicopter;
 
 	void Start() {
 		if (showing) {
@@ -15,29 +14,19 @@ public class OpenSettings : MonoBehaviour {
 		} else {
 			canavas.SetActive(false);
 		}
+		canavas.SetActive(true);
 	}
-
-	public void change_active() {
-		if (showing) {
-			showing = false;
-			canavas.SetActive(showing);
-		} else {
-			showing = true;
-			canavas.SetActive(showing);
+	
+	void Update () {
+		if (Input.GetKeyDown(KeyCode.JoystickButton3)) {
+			if (showing) {
+				showing = false;
+				canavas.SetActive(showing);
+			} else {
+				showing = true;
+				canavas.SetActive(showing);
+				Debug.Log("ajsdlfkjasl;kfaslkfjkslf");
+			}
 		}
-	}
-
-	public void game_resume() {
-		showing = false;
-		canavas.SetActive(showing);
-	}
-
-	public void game_reset() {
-		helicopter.SendMessage("Reset");
-		helicopter.SendMessage("reset_timer");	
-	}
-
-	public void game_exit() {
-
 	}
 }
