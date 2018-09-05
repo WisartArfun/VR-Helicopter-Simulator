@@ -24,6 +24,21 @@ public class Local_Input : MonoBehaviour {
 	public OpenSettings open_settings;
 
 	void Start () {
+		
+		//////////////////////	=>
+		//					//	=>	=>
+		//		Fail		// 	=>	=>	=>	correct
+		//					//	=>	=>
+		//////////////////////	=>
+
+		// var tmp_list_of_gameobjects = transform.root.GetComponentsInChildren<GameObject>();
+		// foreach (var n in tmp_list_of_gameobjects) {
+		// 	if (n.GetComponent<Input_to_Movement>() != null) {
+		// 		receiver = n;
+		// 		Debug.Log(receiver);
+		// 	}
+		// }
+
 		controller_keyboard = GetComponent<Controller_Keyboard>();
 		receiver_input_controller = receiver.GetComponent<Input_to_Movement>();
 		checkpoint_movement = GetComponent<Checkpoints_Movement>();

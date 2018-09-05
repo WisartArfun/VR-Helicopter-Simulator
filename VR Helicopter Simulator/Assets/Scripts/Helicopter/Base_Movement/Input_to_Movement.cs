@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Input_to_Movement : MonoBehaviour {
+public class Input_to_Movement : NetworkBehaviour {
 
 	private Rigidbody rb;
 	private Transform helicopter;
@@ -25,12 +26,34 @@ public class Input_to_Movement : MonoBehaviour {
 
 	public Transform start_pos;
 
+	public Local_Helicopter_Input_2 controller;
+	// [SyncVar(hook="on_id_change")]
+	// public NetworkInstanceId controller_id;
+
+	// void on_id_change(NetworkInstanceId id_new) {
+	// 	controller = ClientScene.FindLocalObject(id_new).GetComponent<Local_Helicopter_Input_2>();
+
+	// 	if (!isLocalPlayer) {
+	// 		return;
+	// 	}
+
+	// 	Cmd_set_controller();
+	// }
+
+	[Command] 
+	void Cmd_set_controller() {
+		// controller = ClientScene.FindLocalObject(controller_id).GetComponent<Local_Helicopter_Input>();
+		controller = GameObject.FindWithTag("Player Manager").GetComponent<Local_Helicopter_Input_2>();
+	}
+
 	void Start () {
 		rb = GetComponent<Rigidbody>();
 		helicopter = GetComponent<Transform>();
 		Physics.gravity = new Vector3(0, -gravity_amount, 0);
 		rotor_rotation = new Vector3(0, 0, 30);
 		force =  gravity_amount / (0.5f * Time.fixedDeltaTime);
+
+		Cmd_set_controller();
 	}
 
 	public void Vertical_Movement(float amount) {
@@ -73,5 +96,9 @@ public class Input_to_Movement : MonoBehaviour {
 	public void Reset() {
 		helicopter.position = start_pos.position;
 		helicopter.rotation = start_pos.rotation;
+	}
+
+	public void self_destruct() {
+		Destroy(transform.root.gameObject);
 	}
 }
