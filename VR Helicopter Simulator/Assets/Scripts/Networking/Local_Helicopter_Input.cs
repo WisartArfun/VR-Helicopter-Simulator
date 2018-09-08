@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Local_Helicopter_Input : NetworkBehaviour {
-
+ 
 	public Input_to_Movement receiver;
 	[SyncVar(hook="on_id_change")]
 	public NetworkInstanceId receiver_id;
@@ -12,7 +12,9 @@ public class Local_Helicopter_Input : NetworkBehaviour {
 	void on_id_change(NetworkInstanceId id_new) {
 		receiver = ClientScene.FindLocalObject(id_new).GetComponentInChildren<Input_to_Movement>();
 
-		if (!isLocalPlayer) {
+		Debug.Log("kas;dlfaslkdfsdklfj;la");
+
+		if (!isLocalPlayer) { 
 			return;
 		}
 
@@ -22,6 +24,7 @@ public class Local_Helicopter_Input : NetworkBehaviour {
 	[Command] 
 	void Cmd_set_receiver() {
 		receiver = ClientScene.FindLocalObject(receiver_id).GetComponentInChildren<Input_to_Movement>();
+		Debug.Log(receiver);
 		// receiver.controller_id = GetComponent<NetworkIdentity>().netId;
 	}
 
@@ -44,13 +47,22 @@ public class Local_Helicopter_Input : NetworkBehaviour {
 		// }
 
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			receiver.transform.Translate(0, 1, 0);
+			// receiver.transform.Translate(0, 1, 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.D)) {
-			Destroy(receiver.GetComponent<GameObject>());
-			Destroy(gameObject);
+			// Destroy(receiver.GetComponent<GameObject>());
+			// Destroy(gameObject);
 		}
+	}
+	
+	public void translated_space() {
+		receiver.transform.Translate(0, 1, 0);
+	}
+
+	public void translated_d() {
+		Destroy(receiver.transform.root.gameObject);
+		Destroy(gameObject);
 	}
 
 	void FixedUpdate() {

@@ -26,7 +26,10 @@ public class Input_to_Movement : NetworkBehaviour {
 
 	public Transform start_pos;
 
-	public Local_Helicopter_Input_2 controller;
+	// public Local_Helicopter_Input_2 controller;
+
+	public Local_Helicopter_Input controller;
+
 	// [SyncVar(hook="on_id_change")]
 	// public NetworkInstanceId controller_id;
 
@@ -43,7 +46,8 @@ public class Input_to_Movement : NetworkBehaviour {
 	[Command] 
 	void Cmd_set_controller() {
 		// controller = ClientScene.FindLocalObject(controller_id).GetComponent<Local_Helicopter_Input>();
-		controller = GameObject.FindWithTag("Player Manager").GetComponent<Local_Helicopter_Input_2>();
+		// controller = GameObject.FindWithTag("Player Manager").GetComponent<Local_Helicopter_Input_2>();
+		controller = GameObject.FindWithTag("Player Connector").GetComponent<Local_Helicopter_Input>();
 	}
 
 	void Start () {
@@ -53,7 +57,7 @@ public class Input_to_Movement : NetworkBehaviour {
 		rotor_rotation = new Vector3(0, 0, 30);
 		force =  gravity_amount / (0.5f * Time.fixedDeltaTime);
 
-		Cmd_set_controller();
+		// Cmd_set_controller();
 	}
 
 	public void Vertical_Movement(float amount) {

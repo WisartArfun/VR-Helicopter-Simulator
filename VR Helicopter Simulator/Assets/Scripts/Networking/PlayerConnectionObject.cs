@@ -43,7 +43,9 @@ public class PlayerConnectionObject : NetworkBehaviour {
 		// NetworkServer.SpawnWithClientAuthority(pm, connectionToClient);
 
 		// pm.GetComponent<Local_Helicopter_Input>().receiver_id = pu.GetComponent<NetworkIdentity>().netId;
-		GameObject.FindWithTag("Player Manager").GetComponent<Local_Helicopter_Input_2>().Receiver_Id = pu.GetComponent<NetworkIdentity>().netId;
+		// GameObject.FindWithTag("Player Manager").GetComponent<Local_Helicopter_Input_2>().Receiver_Id = pu.GetComponent<NetworkIdentity>().netId;
+		pu.GetComponent<Local_Helicopter_Input>().receiver_id = pu.GetComponent<NetworkIdentity>().netId;
+		GameObject.FindWithTag("Player Connector").GetComponent<Player_Input_Collector>().Receiver_Id = pu.GetComponent<NetworkIdentity>().netId;
 	}
 
 	[Command]
