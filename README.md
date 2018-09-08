@@ -1,2 +1,2 @@
 # VR-Helicopter-Simulator
-A VR helicopter simulator made with Unity.
+A multiplayer VR helicopter simulator made with Unity.
