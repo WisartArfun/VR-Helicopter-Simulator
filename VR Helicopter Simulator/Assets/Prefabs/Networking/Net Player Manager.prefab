@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4376630079572370}
   - component: {fileID: 114825108222593130}
   - component: {fileID: 114587639411378594}
+  - component: {fileID: 114340962641027064}
   m_Layer: 0
   m_Name: Net Player Manager
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114340962641027064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433219808580156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 540e367bfe95a47478b30be3ccbfb1bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_State: 0
 --- !u!114 &114587639411378594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +66,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
+  controller_keyboard: {fileID: 0}
+  locked: 0
+  floating: 0
+  open_settings: {fileID: 0}
 --- !u!114 &114825108222593130
 MonoBehaviour:
   m_ObjectHideFlags: 1
