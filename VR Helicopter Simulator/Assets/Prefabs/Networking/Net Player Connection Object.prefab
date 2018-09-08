@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1275752968251888}
+  m_IsPrefabAsset: 1
+--- !u!1 &1275752968251888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4412599798922192}
+  - component: {fileID: 114501848512444776}
+  - component: {fileID: 114335684460130454}
+  m_Layer: 0
+  m_Name: Net Player Connection Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4412599798922192
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275752968251888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.027720451, y: 1.9206324, z: 3.4899998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114335684460130454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275752968251888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb4cd2b5efe3bd4a80dbdf082a90627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_unit_prefab: {fileID: 1826046441734458, guid: 0e0863cf4b7bcb440ab09d3bb4a32715,
+    type: 2}
+  player_manager_prefab: {fileID: 1433219808580156, guid: c1fe910977ccdaa4da26e43d36ad48da,
+    type: 2}
+  player_name: Anonymous
+--- !u!114 &114501848512444776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275752968251888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 208
+    i1: 119
+    i2: 18
+    i3: 39
+    i4: 219
+    i5: 161
+    i6: 206
+    i7: 20
+    i8: 89
+    i9: 33
+    i10: 232
+    i11: 137
+    i12: 15
+    i13: 181
+    i14: 164
+    i15: 125
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
