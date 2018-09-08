@@ -9,7 +9,7 @@ public class SceneManaging : MonoBehaviour {
 	int num = 0;
 
 	void Start () {
-		// scene_changer = new ChangeScene();
+		scene_changer = new ChangeScene();
 		// scene_changer = ChangeScene();
 	}
 

@@ -1804,6 +1804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716b896c8a5781549a1e46631fd717a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eyes: {fileID: 0}
+  helicopter: {fileID: 0}
 --- !u!81 &845719447
 AudioListener:
   m_ObjectHideFlags: 0
