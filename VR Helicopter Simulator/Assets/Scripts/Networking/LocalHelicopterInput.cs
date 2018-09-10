@@ -17,7 +17,7 @@ public class LocalHelicopterInput : NetworkBehaviour {
 
 	public Controller_Keyboard controller_keyboard;
 	// public GameObject receiver;
-	private InputToMovement receiver_input_controller;
+	// private InputToMovement receiver_input_controller;
 	public bool locked;
 	private float locked_value;
 	private float end_value;
@@ -46,7 +46,7 @@ public class LocalHelicopterInput : NetworkBehaviour {
 	}
 
 	void Update () {
-		if (!hasAuthority) {
+		if (!hasAuthority) { 
 			return;
 		}
 
@@ -97,7 +97,7 @@ public class LocalHelicopterInput : NetworkBehaviour {
 
 	void Start () {
 		controller_keyboard = GetComponent<Controller_Keyboard>();
-		receiver_input_controller = receiver.GetComponent<InputToMovement>();
+		receiver = receiver.GetComponent<InputToMovement>();
 		checkpoint_movement = GetComponent<Checkpoints_Movement>();
 		input_mode = new AllAroundInput();
 		// receiver_input_controller.force = receiver_input_controller.gravity_amount * input_mode.gravity_times_force;
@@ -105,16 +105,16 @@ public class LocalHelicopterInput : NetworkBehaviour {
 
 	void horizontal_input(float input, float timestep) {
 		if (Mathf.Abs(input) > 0.1f) {
-			receiver_input_controller.Rotate(input_mode.adapt_input(input) * timestep);
+			receiver.Rotate(input_mode.adapt_input(input) * timestep);
 		}
 	}
 
 	void forward_input(float input) {
 		// Debug.Log("k1 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
-			receiver_input_controller.Forward(input);
+			receiver.Forward(input);
 		} else {
-			receiver_input_controller.Forward(0);
+			receiver.Forward(0);
 		}
 	}
 
@@ -122,9 +122,9 @@ public class LocalHelicopterInput : NetworkBehaviour {
 		// Debug.Log("k3 " + input);
 		if (Mathf.Abs(input) > 0.1f) {
 			// receiver_input_controller.Sideward(input_mode.adapt_input(input));
-			receiver_input_controller.Sideward(input);
+			receiver.Sideward(input);
 		} else {
-			receiver_input_controller.Sideward(0);
+			receiver.Sideward(0);
 		}
 	}
 
@@ -137,7 +137,7 @@ public class LocalHelicopterInput : NetworkBehaviour {
 	}
 
 	void reset_helicopter() {
-		receiver_input_controller.Reset();
+		receiver.Reset();
 	}
 
 	void switch_floating() {
@@ -165,6 +165,6 @@ public class LocalHelicopterInput : NetworkBehaviour {
 			input += input_mode.flying_controlled;
 		}
 		// Debug.Log(input_mode.adapt_input(input) * timestep);
-		receiver_input_controller.Vertical_Movement(input_mode.adapt_input(input) * timestep);
+		receiver.Vertical_Movement(input_mode.adapt_input(input) * timestep);
 	}
 }

@@ -34,8 +34,10 @@ public class InputToMovement : MonoBehaviour {
 	}
 
 	public void move_vertical(float force) {
-		GetComponent<Rigidbody>().AddForce(transform.up * force * 1);
-		transform.Translate(0.1f, 0, 0);
+		// GetComponent<Rigidbody>().AddForce(transform.up * force * 1);
+		// transform.Translate(0.1f, 0, 0);
+		rb.AddForce(transform.up * force * 1);
+		helicopter.Translate(0.1f, 0, 0);
 	}
 
 	public void move_horizontal(float force) {
