@@ -81,7 +81,7 @@ GameObject:
   - component: {fileID: 65381247683772898}
   m_Layer: 0
   m_Name: Net Player Unit
-  m_TagString: Untagged
+  m_TagString: Player Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
+  m_TransformSyncMode: 1
   m_SendInterval: 0.1
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
@@ -599,6 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11022e27ca280ce449d048150d2c363d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
 --- !u!114 &114863922923724634
 MonoBehaviour:
   m_ObjectHideFlags: 1

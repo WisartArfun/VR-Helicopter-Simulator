@@ -23,6 +23,12 @@ public class Checkpoints_Helicopter_Management : MonoBehaviour {
 		checkpoints[current_checkpoint].GetComponent<MeshRenderer>().material = target;
 		record_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("record", float.PositiveInfinity));
 		last_run_text.GetComponent<Text>().text = System.Convert.ToString(PlayerPrefs.GetFloat("last_run", float.PositiveInfinity));
+		Debug.Log("hello");
+		Debug.Log(GetComponentsInChildren<Transform>());
+		foreach (var t in GetComponentsInChildren<Transform>()) {
+			Debug.Log(t);
+			// checkpoints.Add();
+		}
 	}
 
 	void Update() {

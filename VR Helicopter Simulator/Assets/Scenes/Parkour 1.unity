@@ -3633,6 +3633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1755549173}
+  - component: {fileID: 1755549174}
   m_Layer: 0
   m_Name: Checkpoints_Controller
   m_TagString: Untagged
@@ -3657,6 +3658,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755549174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1755549172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83dfe72b204107439b3a61e559bc73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoints: []
+  target: {fileID: 0}
+  done: {fileID: 0}
+  timer: 0
+  current_timer_text: {fileID: 0}
+  record_text: {fileID: 0}
+  last_run_text: {fileID: 0}
 --- !u!4 &1817060143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388954776886292, guid: a1a1b4196eb1d8a47b5df0ec8a94b3af,

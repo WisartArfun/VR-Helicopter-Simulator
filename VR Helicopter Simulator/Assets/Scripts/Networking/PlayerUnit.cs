@@ -4,9 +4,23 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class PlayerUnit : NetworkBehaviour {
+
+	public Rigidbody rb;
+
+	void Start() {
+		rb = GetComponent<Rigidbody>();
+	}
+
+	void FixedUpdate() {
+		if (!hasAuthority) {
+			rb.AddForce(-Physics.gravity);
+			return;
+		}
+	}
 	
 	void Update () {
 		if (!hasAuthority) {
+			// rb.addForce(25);
 			return;
 		}
 
