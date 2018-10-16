@@ -579,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TransformSyncMode: 1
-  m_SendInterval: 0.1
+  m_SendInterval: 0.045454547
   m_SyncRotationAxis: 7
   m_RotationSyncCompression: 0
   m_SyncSpin: 0
@@ -619,6 +619,7 @@ MonoBehaviour:
   - {fileID: 0}
   target: {fileID: 2100000, guid: 5996a685e77816c4a9f478e878a64109, type: 2}
   done: {fileID: 2100000, guid: dd7df095164c0954eac4e7529492cb17, type: 2}
+  undone: {fileID: 0}
   timer: 0
   current_timer_text: {fileID: 0}
   record_text: {fileID: 0}

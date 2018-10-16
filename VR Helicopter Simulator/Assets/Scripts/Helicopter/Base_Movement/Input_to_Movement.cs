@@ -74,4 +74,8 @@ public class Input_to_Movement : MonoBehaviour {
 		helicopter.position = start_pos.position;
 		helicopter.rotation = start_pos.rotation;
 	}
+
+	// public void OnCollissionEnter(Collider col) {
+	// 	Debug.Log(col.name);
+	// }
 }

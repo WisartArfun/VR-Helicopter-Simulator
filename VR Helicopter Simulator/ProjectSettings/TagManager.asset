@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player Unit
+  - Helicopter Checkpoint
+  - Controller Checkpoint
   layers:
   - Default
   - TransparentFX

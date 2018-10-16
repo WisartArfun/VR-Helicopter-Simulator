@@ -58,7 +58,7 @@ public class LocalHelicopterInput : NetworkBehaviour {
 
 		forward_input(-Input.GetAxis("Forward"));
 		sideward_input(-Input.GetAxis("Sideward"));
-		Debug.Log(Input.GetAxis("Forward"));
+		// Debug.Log(Input.GetAxis("Forward"));
 
 		change_controller_checkpoint(Input.GetButton ("NextC"), Input.GetButton("PreviousC"));
 

@@ -69,6 +69,14 @@ public class Checkpoints_Movement : MonoBehaviour {
 	int next_c = 1;
 	int last_c = 0;
 
+	void Start() {
+		var checkpoints_go = GameObject.FindGameObjectWithTag("Controller Checkpoint");
+		foreach (var t in checkpoints_go.GetComponentsInChildren<GameObject>()) {
+			checkpoints.Add(t.transform);
+			// asflkjadsklfasdl;kf;kla
+		}
+	}
+
 	public void change_checkpoint(int direction) {
 		if (transform.position == checkpoints[next_c].position) {
 			next_c++;
